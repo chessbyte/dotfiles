@@ -1,0 +1,40 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+
+# Homebrew (https://brew.sh)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Atuin (https://atuin.sh)
+#
+# Bind BOTH ctrl-r and up arrow
+# eval "$(atuin init zsh)"
+# Bind ctrl-r but not up arrow
+# eval "$(atuin init zsh --disable-up-arrow)"
+# Bind up-arrow but not ctrl-r
+# eval "$(atuin init zsh --disable-ctrl-r)"
+export ATUIN_NOBIND="true"
+eval "$(atuin init zsh)"
+bindkey '^r' _atuin_search_widget
+
+# Git Aliases (https://github.com/ConradIrwin/git-aliae)
+export PATH=$PATH:$HOME/Developer/ConradIrwin/git-aliae/bin
+
+# 1Password CLI
+export SSH_AUTH_SOCK=~/.1password/agent.sock
+
+# GPG
+export GPG_TTY=$(tty)
+
+# Dfinitiv (https://dfinitiv.io)
+export DFINITIV_HOME=~/Developer/dfinitiv
+
+# ManageIQ (https://manageiq.org)
+export MANAGEIQ_HOME=~/Developer/ManageIQ
+
+# NVM (Node Version Manager)
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
