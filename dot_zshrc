@@ -91,6 +91,41 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Homebrew (https://brew.sh)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Atuin (https://atuin.sh)
+#
+# Bind BOTH ctrl-r and up arrow
+# eval "$(atuin init zsh)"
+# Bind ctrl-r but not up arrow
+# eval "$(atuin init zsh --disable-up-arrow)"
+# Bind up-arrow but not ctrl-r
+# eval "$(atuin init zsh --disable-ctrl-r)"
+export ATUIN_NOBIND="true"
+eval "$(atuin init zsh)"
+bindkey '^r' _atuin_search_widget
+
+# Git Aliases (https://github.com/ConradIrwin/git-aliae)
+export PATH=$PATH:$HOME/Developer/ConradIrwin/git-aliae/bin
+
+# 1Password CLI
+export SSH_AUTH_SOCK=~/.1password/agent.sock
+
+# GPG
+export GPG_TTY=$(tty)
+
+# Dfinitiv (https://dfinitiv.io)
+export DFINITIV_HOME=~/Developer/dfinitiv
+
+# ManageIQ (https://manageiq.org)
+export MANAGEIQ_HOME=~/Developer/ManageIQ
+
+# NVM (Node Version Manager)
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
