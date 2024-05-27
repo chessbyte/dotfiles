@@ -1,6 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+# 1Password
+export OP_ACCOUNT_BARENBOIM=OBLB2ME7QRAD5JWNSDMJE7X6PA
+export OP_ACCOUNT_DFINITIV=CP7KE6KD6JAJFOJFKTGG7CPAOM
+
 # Homebrew (https://brew.sh)
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
