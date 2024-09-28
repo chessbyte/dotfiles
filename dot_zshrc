@@ -146,7 +146,7 @@ source $ZSH/oh-my-zsh.sh
 # Bind up-arrow but not ctrl-r
 # eval "$(atuin init zsh --disable-ctrl-r)"
 export ATUIN_NOBIND="true"
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
 bindkey '^r' _atuin_search_widget
 
 # Autojump (https://github.com/wting/autojump)
@@ -181,5 +181,11 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+## Autosuggestions conflicts with up/down history
+# bindkey '^[[A' up-line-or-search
+# bindkey '^[[B' down-line-or-search
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
