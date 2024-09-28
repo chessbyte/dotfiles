@@ -1,0 +1,3 @@
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+@dfinitiv:registry=https://npm.pkg.github.com/dfinitiv
+@8pawns:registry=https://npm.pkg.github.com/8pawns
