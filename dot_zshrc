@@ -93,7 +93,6 @@ SHOW_AWS_PROMPT=false
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     1password
-    ag
     aliases
     autojump
     aws
@@ -116,6 +115,7 @@ plugins=(
     thefuck
     vscode
     web-search
+    you-should-use
 )
 
 source $ZSH/oh-my-zsh.sh
