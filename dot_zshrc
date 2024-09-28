@@ -2,16 +2,16 @@
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Homebrew (https://brew.sh)
-[ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+[ -f ~/.homebrew.sh ] && source ~/.homebrew.sh
+
+# Oh My Zsh (https://ohmyz.sh/)
+[ -f ~/.oh-my-zsh.sh ] && source ~/.oh-my-zsh.sh
 
 # 1Password (https://1password.com)
 [ -f ~/.1password.sh ] && source ~/.1password.sh
 
 # Load Secrets - off by default as it requires 1Password authorization during shell startup
 # [ -f ~/.secrets.sh ] && source ~/.secrets.sh
-
-# Oh My Zsh (https://ohmyz.sh/)
-[ -f ~/.oh-my-zsh.sh ] && source ~/.oh-my-zsh.sh
 
 # User configuration
 
