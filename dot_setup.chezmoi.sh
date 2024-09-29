@@ -1,5 +1,5 @@
 # Install Chezmoi (https://www.chezmoi.io/), if needed
-brew list chezmoi &> /dev/null || brew install chezmoi
+# brew list chezmoi &> /dev/null || brew install chezmoi
 
 # Ensure Chezmoi is installed
 command -v chezmoi &> /dev/null || {

@@ -1,5 +1,5 @@
 # Install 1Password CLI (https://formulae.brew.sh/cask/1password-cli), if needed
-brew list --cask 1password-cli &> /dev/null || brew install --cask 1password-cli
+# brew list --cask 1password-cli &> /dev/null || brew install --cask 1password-cli
 
 # Ensure 1Password CLI is installed
 command -v op &> /dev/null || echo "1Password CLI not found - please install it"
