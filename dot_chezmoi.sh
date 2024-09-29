@@ -9,6 +9,3 @@ command -v chezmoi &> /dev/null || {
 
 # Initialize Chezmoi
 [ -d ~/.local/share/chezmoi/.git ] || chezmoi init https://github.com/chessbyte/dotfiles.git
-
-# Update the dotfiles via Chezmoi
-chezmoi update
