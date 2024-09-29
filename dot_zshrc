@@ -10,6 +10,9 @@
 # Chezmoi (https://www.chezmoi.io/)
 [ -f ~/.chezmoi.sh ] && source ~/.chezmoi.sh
 
+# Finicky (https://github.com/johnste/finicky)
+[ -f ~/.setup.finicky.sh ] && source ~/.setup.finicky.sh
+
 # 1Password (https://1password.com)
 [ -f ~/.1password.sh ] && source ~/.1password.sh
 
