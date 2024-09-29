@@ -7,6 +7,9 @@
 # Oh My Zsh (https://ohmyz.sh/)
 [ -f ~/.oh-my-zsh.sh ] && source ~/.oh-my-zsh.sh
 
+# Chezmoi (https://www.chezmoi.io/)
+[ -f ~/.chezmoi.sh ] && source ~/.chezmoi.sh
+
 # 1Password (https://1password.com)
 [ -f ~/.1password.sh ] && source ~/.1password.sh
 
