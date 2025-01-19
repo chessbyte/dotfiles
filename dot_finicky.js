@@ -2,10 +2,10 @@
 // Learn more about configuration options: https://github.com/johnste/finicky/wiki/Configuration
 
 const chromeProfiles = {
-  dfinitiv:  "Default",    // oleg.barenboim@dfinitiv.io
-  personal:  "Profile 2",  // oleg.barenboim@gmail.com
-  chessbyte: "Profile 3",  // chessbyte
-  "8pawns":  "Profile 4",  // oleg.barenboim@8pawns.com
+  personal:  "Profile_personal",   // oleg.barenboim@gmail.com
+  chessbyte: "Profile_chessbyte",  // chessbyte@gmail.com
+  dfinitiv:  "Profile_dfinitiv",   // oleg.barenboim@dfinitiv.io
+  "8pawns":  "Profile_8pawns",     // oleg.barenboim@8pawns.com
 }
 
 module.exports = {
