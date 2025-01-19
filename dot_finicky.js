@@ -43,7 +43,9 @@ module.exports = {
         finicky.matchDomains(/.*\.miro.com/),   // use helper function to match on domain only
         finicky.matchDomains(/.*\.linear.app/), // use helper function to match on domain only
         "github.com/dfinitiv*",
-        "github.com/chessbyte/dfinitiv*"
+        "github.com/chessbyte/dfinitiv*",
+        "github.com/search?q=org%3Adfinitiv*",
+        "dfinitiv.awsapps.com/*"
       ],
       browser: {
         name: "Google Chrome",
@@ -76,7 +78,9 @@ module.exports = {
       // Open in Google Chrome (8pawns)
       match: [
         "github.com/8pawns*",
-        "github.com/chessbyte/8pawns*"
+        "github.com/chessbyte/8pawns*",
+        "github.com/search?q=org%3A8pawns*",
+        "8pawns.awsapps.com/*"
       ],
       browser: {
         name: "Google Chrome",
