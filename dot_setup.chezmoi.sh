@@ -8,4 +8,4 @@ command -v chezmoi &> /dev/null || {
 }
 
 # Initialize Chezmoi
-[ -d ~/.local/share/chezmoi/.git ] || chezmoi init git@github.com:chessbyte/dotfiles.git
+[ -d ~/.local/share/chezmoi/.git ] || chezmoi init https://github.com/chessbyte/dotfiles.git
