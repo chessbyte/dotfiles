@@ -14,6 +14,40 @@ function aws-clean() {
   fi
 }
 
+function aws-config() {
+  echo "Pick a project to set AWS config files for:"
+  echo "dfinitiv"
+  echo "8pawns"
+  echo "chessbyte"
+  echo "all"
+
+  echo -e "\nPlease choose a project by its first letter:"
+  read PROJECT
+
+  # Extract the instance ID based on the user's choice
+  case $PROJECT in
+    d)
+      echo "Setting AWS config for dfinitiv"
+      cp $ZSH/custom/aws-profiles/dfinitiv.config       ~/.aws/config
+      ;;
+    8)
+      echo "Setting AWS config for 8pawns"
+      cp $ZSH/custom/aws-profiles/8pawns.config         ~/.aws/config
+      ;;
+    c)
+      echo "Setting AWS config for chessbyte"
+      cp $ZSH/custom/aws-profiles/chessbyte.config      ~/.aws/config
+      ;;
+    a)
+      echo "Setting AWS config for all projects"
+      cp $ZSH/custom/aws-profiles/all.config            ~/.aws/config
+      ;;
+    *)
+      echo "Invalid choice...goodbye"
+      ;;
+  esac
+}
+
 function aws-rds() {
 if [[ -z "$AWS_PROFILE" ]]
 	then
