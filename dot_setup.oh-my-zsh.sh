@@ -88,6 +88,7 @@ plugins=(
     autojump
     aws
     brew
+    code2clip
     colorize
     command-not-found
     copybuffer
