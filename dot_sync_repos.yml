@@ -1,0 +1,9 @@
+---
+# Global sync_repos configuration
+# This file provides default settings across all projects and organizations
+
+# Your personal fork remote (consistent across organizations)
+target-remote: chessbyte
+
+# Default main branch name
+main-branch: main
