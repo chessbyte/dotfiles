@@ -16,6 +16,12 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 # 1Password (https://1password.com)
 [ -f ~/.setup.1password.sh ] && source ~/.setup.1password.sh
 
+# Android Studio (https://developer.android.com/studio)
+[ -f ~/.setup.android-studio.sh ] && source ~/.setup.android-studio.sh
+
+# Java (https://www.java.com)
+[ -f ~/.setup.java.sh ] && source ~/.setup.java.sh
+
 # Load Secrets - off by default as it requires 1Password authorization during shell startup
 # [ -f ~/.secrets.sh ] && source ~/.secrets.sh
 
