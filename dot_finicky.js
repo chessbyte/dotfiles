@@ -8,7 +8,7 @@ const chromeProfiles = {
   "8pawns":  "Profile_8pawns",     // oleg.barenboim@8pawns.com
 }
 
-module.exports = {
+export default {
   defaultBrowser: "Safari",
 
   handlers: [
@@ -20,10 +20,10 @@ module.exports = {
       match: /^https?:\/\/.*\.notion.so\/.*$/,
       browser: "/Applications/Notion.app"
     },
-    {
-      match: /^https?:\/\/.*\.canva.com\/.*$/,
-      browser: "/Applications/Canva.app"
-    },
+    // {
+    //   match: /^https?:\/\/.*\.canva.com\/.*$/,
+    //   browser: "/Applications/Canva.app"
+    // },
     {
       match: /^https?:\/\/.*\.figma.com\/.*$/,
       browser: "/Applications/Figma.app"
@@ -36,12 +36,12 @@ module.exports = {
       // Open in Google Chrome (dfinitiv)
       match: [
         "google.com*", // match google.com urls
-        finicky.matchDomains(/.*\.google.com/), // use helper function to match on domain only
-        finicky.matchDomains(/.*\.notion.so/),  // use helper function to match on domain only
-        finicky.matchDomains(/.*\.canva.com/),  // use helper function to match on domain only
-        finicky.matchDomains(/.*\.figma.com/),  // use helper function to match on domain only
-        finicky.matchDomains(/.*\.miro.com/),   // use helper function to match on domain only
-        finicky.matchDomains(/.*\.linear.app/), // use helper function to match on domain only
+        finicky.matchHostnames(/(?:^|\.)google\.com$/),
+        finicky.matchHostnames(/(?:^|\.)notion\.so$/),
+        finicky.matchHostnames(/(?:^|\.)canva\.com$/),
+        finicky.matchHostnames(/(?:^|\.)figma\.com$/),
+        finicky.matchHostnames(/(?:^|\.)miro\.com$/),
+        finicky.matchHostnames(/(?:^|\.)linear\.app$/),
         "github.com/dfinitiv*",
         "github.com/chessbyte/dfinitiv*",
         "github.com/search?q=org%3Adfinitiv*",
@@ -67,7 +67,7 @@ module.exports = {
     {
       // Open in Google Chrome (personal: oleg.barenboim@gmail.com)
       match: [
-        finicky.matchDomains(/medium.com/),  // use helper function to match on domain only
+        finicky.matchHostnames(/(?:^|\.)medium\.com$/),
       ],
       browser: {
         name: "Google Chrome",
