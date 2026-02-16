@@ -77,6 +77,7 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(
 # aws plugin: Don't update prompt with AWS info
 SHOW_AWS_PROMPT=false
 
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -112,5 +113,23 @@ plugins=(
 
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 
-# Show timestamp on right side of prompt
-RPROMPT='%F{yellow}[%D{%Y-%m-%d %H:%M:%S}]%f'
+# Show timestamp and command duration on right side of prompt
+zmodload zsh/datetime
+autoload -U add-zsh-hook
+
+_cmd_timer_preexec() { _cmd_timer_start=$EPOCHREALTIME; }
+_cmd_timer_precmd() {
+  local duration=""
+  if [[ -n "$_cmd_timer_start" ]]; then
+    local elapsed=$(( EPOCHREALTIME - _cmd_timer_start ))
+    unset _cmd_timer_start
+    local int_elapsed=${elapsed%.*}
+    local mins=$(( int_elapsed / 60 ))
+    local secs=$(( int_elapsed % 60 ))
+    duration="%F{white}${mins}m${secs}s%f "
+  fi
+  RPROMPT="${duration}%F{yellow}[%D{%Y-%m-%d %H:%M:%S}]%f"
+}
+
+add-zsh-hook preexec _cmd_timer_preexec
+add-zsh-hook precmd _cmd_timer_precmd
