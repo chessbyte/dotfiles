@@ -111,3 +111,6 @@ plugins=(
 )
 
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
+
+# Show timestamp on right side of prompt
+RPROMPT='%F{yellow}[%D{%Y-%m-%d %H:%M:%S}]%f'
