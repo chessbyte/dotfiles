@@ -1,51 +1,18 @@
 function aws-clean() {
-  echo "This will unset your AWS environment variables"
-  echo -n "Do you want to proceed? (Y/n): "
-  read response
-
-  # Check the user's response
-  if [[ "$response" =~ ^[Nn]$ ]]; then
-    echo "Cancelling"
-  else
-    unset AWS_PROFILE
-    unset AWS_ACCESS_KEY_ID
-    unset AWS_SECRET_ACCESS_KEY
-    unset AWS_SESSION_TOKEN
-  fi
+  unset AWS_PROFILE AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
+  echo "AWS environment variables unset"
 }
 
-function aws-config() {
-  echo "Pick a project to set AWS config files for:"
-  echo "dfinitiv"
-  echo "8pawns"
-  echo "chessbyte"
-  echo "all"
-
-  echo -e "\nPlease choose a project by its first letter:"
-  read PROJECT
-
-  # Extract the instance ID based on the user's choice
-  case $PROJECT in
-    d)
-      echo "Setting AWS config for dfinitiv"
-      cp $ZSH/custom/aws-profiles/dfinitiv.config       ~/.aws/config
-      ;;
-    8)
-      echo "Setting AWS config for 8pawns"
-      cp $ZSH/custom/aws-profiles/8pawns.config         ~/.aws/config
-      ;;
-    c)
-      echo "Setting AWS config for chessbyte"
-      cp $ZSH/custom/aws-profiles/chessbyte.config      ~/.aws/config
-      ;;
-    a)
-      echo "Setting AWS config for all projects"
-      cp $ZSH/custom/aws-profiles/all.config            ~/.aws/config
-      ;;
-    *)
-      echo "Invalid choice...goodbye"
-      ;;
-  esac
+function aws-sso() {
+  local profile
+  profile=$(grep '\[profile ' ~/.aws/config \
+    | sed 's/\[profile \(.*\)]/\1/' \
+    | sort \
+    | fzf --prompt="AWS Profile> " --height=40% --reverse)
+  [[ -z "$profile" ]] && return
+  export AWS_PROFILE="$profile"
+  echo "Using AWS_PROFILE=$AWS_PROFILE"
+  aws sts get-caller-identity --no-cli-pager || aws sso login
 }
 
 function aws-rds() {
@@ -83,34 +50,4 @@ if [[ -z "$AWS_PROFILE" ]]
 	read LOCAL_PORT
 	LOCAL_PORT=${LOCAL_PORT:-$DEFAULT_LOCAL_PORT}
 	aws ssm start-session --target $INSTANCE_ID --document-name "AWS-StartPortForwardingSession" --parameters "localPortNumber=${LOCAL_PORT},portNumber=5432" --region us-east-1
-}
-
-function aws-sso() {
-  list_profiles() {
-      touch ~/.aws/config
-      grep -v "^#" ~/.aws/config | grep -o '\[profile[^][]*]' | cut -d "[" -f2 | cut -d "]" -f1 | cut -d " " -f2
-  }
-
-  # Display the list of instances and ask the user to select one
-  echo "Here's a list of available profiles from ~/.aws/config:"
-  instances=($(list_profiles))
-  len=${#instances[@]}
-
-  for (( i=1; i<=$len; i+=1 )); do
-      echo "$((i)): ${instances[$i]}"
-  done
-
-  echo -e "\nPlease choose an profile by number:"
-  read INSTANCE_NUMBER
-
-  # Extract the instance ID based on the user's choice
-  index=$((INSTANCE_NUMBER))
-  export AWS_PROFILE=${instances[$index]}
-  echo "Using AWS PROFILE ($AWS_PROFILE)"
-
-  if ! aws sts get-caller-identity --no-cli-pager; then
-      # If the command fails, attempt to login with SSO
-      echo "Invalid credentials or another error occurred. Attempting to login with SSO..."
-      aws sso login
-  fi
 }
