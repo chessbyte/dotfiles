@@ -16,6 +16,9 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 # 1Password (https://1password.com)
 [ -f ~/.setup.1password.sh ] && source ~/.setup.1password.sh
 
+# Obsidian (https://obsidian.md)
+[ -f ~/.setup.obsidian.sh ] && source ~/.setup.obsidian.sh
+
 # Android Studio (https://developer.android.com/studio)
 [ -f ~/.setup.android-studio.sh ] && source ~/.setup.android-studio.sh
 
