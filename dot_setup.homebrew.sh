@@ -6,3 +6,6 @@
 
 # Initialize Homebrew
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Add zsh-completions to FPATH (brew shellenv doesn't include this)
+[ -d "$(brew --prefix)/share/zsh-completions" ] && FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
