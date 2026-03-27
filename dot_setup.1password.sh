@@ -11,6 +11,7 @@ export OP_ACCOUNT_8PAWNS=Q6PYA6ROGBD4RKEAAK4L2KT4WA
 
 export OP_VAULT_CHESSBYTE=meynpb5hszg63joxh7wa2vxyi4
 export OP_ITEM_GITHUB=wntvafwpyhlpkltaezxnoh662u
+export OP_ITEM_AWS_CHESSBYTE=2bacefhi3jboxct37jegzvqcry
 
 # Initialize 1Password SSH Agent
 export SSH_AUTH_SOCK=~/.1password/agent.sock
