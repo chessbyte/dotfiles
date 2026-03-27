@@ -1,1 +1,0 @@
-export GITHUB_TOKEN=$(op --account $OP_ACCOUNT_BARENBOIM read op://$OP_VAULT_CHESSBYTE/$OP_ITEM_GITHUB/access-token)
