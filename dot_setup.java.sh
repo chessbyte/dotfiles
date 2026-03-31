@@ -2,7 +2,7 @@
 # brew list openjdk@17 &> /dev/null || brew install openjdk@17
 
 [ -d /opt/homebrew/opt/openjdk@17 ] || {
-  echo "Java JDK not found - please install OpenJDK 17"
+  echo "Java JDK not found — install with: brew install openjdk@17"
   return 1 || exit 1
 }
 

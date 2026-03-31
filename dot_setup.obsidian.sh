@@ -2,7 +2,7 @@
 # brew install --cask obsidian
 
 [ -d /Applications/Obsidian.app ] || {
-  echo "Obsidian not found"
+  echo "Obsidian not found — install with: brew install --cask obsidian"
 }
 
 export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"

@@ -4,7 +4,7 @@
 # brew install --cask finicky
 
 [ -d /Applications/Finicky.app ] || {
-  echo "Finicky not found"
+  echo "Finicky not found — install with: brew install --cask finicky"
 }
 
 # Directory to search for Chrome Profiles

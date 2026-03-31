@@ -2,7 +2,7 @@
 # brew list --cask 1password-cli &> /dev/null || brew install --cask 1password-cli
 
 # Ensure 1Password CLI is installed
-command -v op &> /dev/null || echo "1Password CLI not found - please install it"
+command -v op &> /dev/null || echo "1Password CLI not found — install with: brew install --cask 1password-cli"
 
 # Initialize 1Password CLI environment variables
 export OP_ACCOUNT_BARENBOIM=OBLB2ME7QRAD5JWNSDMJE7X6PA

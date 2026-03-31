@@ -3,7 +3,7 @@
 
 # Ensure Chezmoi is installed
 command -v chezmoi &> /dev/null || {
-  echo "chezmoi not found - please install it"
+  echo "chezmoi not found — install with: brew install chezmoi"
   return 1 || exit 1
 }
 

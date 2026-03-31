@@ -2,7 +2,7 @@
 # brew install --cask cmux
 
 [ -d /Applications/cmux.app ] || {
-  echo "cmux not found"
+  echo "cmux not found — install with: brew install --cask cmux"
 }
 
 # Create a cmux workspace with a vertical split for a given repo

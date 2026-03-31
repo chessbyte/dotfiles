@@ -2,7 +2,7 @@
 # brew install --cask android-studio
 
 [ -d /Applications/Android\ Studio.app ] || {
-  echo "Android Studio not found"
+  echo "Android Studio not found — install with: brew install --cask android-studio"
 }
 
 # Ensure Android SDK is installed

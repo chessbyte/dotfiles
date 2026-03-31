@@ -5,7 +5,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 [ -d $ZSH ] || {
-  echo "Oh My Zsh not found"
+  echo "Oh My Zsh not found — install with: sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""
 }
 
 # Set name of the theme to load --- if set to "random", it will
