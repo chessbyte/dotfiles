@@ -5,11 +5,20 @@ function aws-clean() {
 
 function aws-sso() {
   local profile
-  profile=$(grep '\[profile ' ~/.aws/config \
-    | sed 's/\[profile \(.*\)]/\1/' \
-    | sort \
-    | fzf --prompt="AWS Profile> " --height=40% --reverse)
-  [[ -z "$profile" ]] && return
+  if [[ -n "$1" ]]; then
+    if grep -q "\[profile $1\]" ~/.aws/config; then
+      profile="$1"
+    else
+      echo "Profile '$1' not found in ~/.aws/config"
+      return 1
+    fi
+  else
+    profile=$(grep '\[profile ' ~/.aws/config \
+      | sed 's/\[profile \(.*\)]/\1/' \
+      | sort \
+      | fzf --prompt="AWS Profile> " --height=40% --reverse)
+    [[ -z "$profile" ]] && return
+  fi
   export AWS_PROFILE="$profile"
   echo "Using AWS_PROFILE=$AWS_PROFILE"
   aws sts get-caller-identity --no-cli-pager || aws sso login
