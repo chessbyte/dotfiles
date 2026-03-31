@@ -1,7 +1,11 @@
 #!/bin/bash
 
-# Install Finicky (https://formulae.brew.sh/cask/finicky), if needed
-# brew list --cask finicky &> /dev/null || brew install --cask finicky
+# Install Finicky (https://github.com/johnste/finicky), if needed
+# brew install --cask finicky
+
+[ -d /Applications/Finicky.app ] || {
+  echo "Finicky not found"
+}
 
 # Directory to search for Chrome Profiles
 CHROME_DIR="$HOME/Library/Application Support/Google/Chrome"

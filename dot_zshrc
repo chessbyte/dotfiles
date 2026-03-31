@@ -25,6 +25,9 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 # Java (https://www.java.com)
 [ -f ~/.setup.java.sh ] && source ~/.setup.java.sh
 
+# cmux (https://cmux.dev)
+[ -f ~/.setup.cmux.sh ] && source ~/.setup.cmux.sh
+
 # Load Secrets - lazy-loaded via 1Password on first use (no biometric on shell startup)
 [ -f ~/.setup.secrets.sh ] && source ~/.setup.secrets.sh
 

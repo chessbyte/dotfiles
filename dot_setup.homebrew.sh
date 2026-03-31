@@ -1,7 +1,8 @@
 # Install Homebrew (https://brew.sh/), if needed
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 [ -f /opt/homebrew/bin/brew ] || {
   echo "Homebrew not found"
-  # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
 # Initialize Homebrew

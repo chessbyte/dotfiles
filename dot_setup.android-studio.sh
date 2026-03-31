@@ -1,5 +1,9 @@
 # Install Android Studio (https://developer.android.com/studio), if needed
-# brew list android-studio &> /dev/null || brew install --cask android-studio
+# brew install --cask android-studio
+
+[ -d /Applications/Android\ Studio.app ] || {
+  echo "Android Studio not found"
+}
 
 # Ensure Android SDK is installed
 [ -d $HOME/Library/Android/sdk ] && export ANDROID_HOME=$HOME/Library/Android/sdk
