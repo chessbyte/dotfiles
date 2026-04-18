@@ -8,8 +8,11 @@
 [color]
 	ui = auto
 	diff = auto
+[column]
+	ui = auto
 [commit]
 	gpgsign = false
+	verbose = true
 [core]
 	attributesfile = ~/.gitattributes
 	excludesfile = ~/.gitignore
@@ -26,22 +29,26 @@
 [grep]
 	lineNumber = true
 [help]
-	autocorrect = 1
+	autocorrect = true
 [include]
 [init]
 	defaultBranch = main
 [log]
 	follow = true
 [merge]
+	conflictstyle = zdiff3
 	renamelimit = 99999
 [pull]
+	autoSetupRemote = true
 	rebase = true
+	ff = only
 [push]
 	default = simple
 [rebase]
 	autosquash = true
+	autoStash = true
 [rerere]
-	enabled = 1
+	enabled = true
 [status]
 	short = true
 	branch = true
